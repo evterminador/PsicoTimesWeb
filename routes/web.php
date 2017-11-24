@@ -24,4 +24,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
+Route::prefix('admin/application')->group(function () {
+    Route::post('/', 'ApplicationController@store')->name('application.submit');
+    Route::get('/', 'ApplicationController@index')->name('application.index');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');

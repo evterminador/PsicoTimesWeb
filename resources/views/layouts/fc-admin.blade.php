@@ -12,14 +12,18 @@
 
         @yield('styles')
     </head>
-    <body @yield('body-class')>
-        @yield('head-parts')
+    <body  class="@yield('body-class')">
+        <div class="wrapper">
+            @yield('head-parts')
 
-        @yield('side-bar')
+            @yield('side-main')
 
-        @yield('content')
+            @yield('content')
 
-        @yield('footer')
+            @yield('footer')
+
+            @yield('side-bar')
+        </div>
 
         <!-- Scripts -->
         @yield('scripts')

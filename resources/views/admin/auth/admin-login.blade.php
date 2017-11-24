@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 @endsection
 
-@section('body-class', 'class="hold-transition login-page"')
+@section('body-class', 'hold-transition login-page')
 
 @section('content')
     <div class="login-box">
