@@ -24,4 +24,11 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
+Route::prefix('admin/application')->group(function () {
+    Route::get('/delete/{application}', 'ApplicationController@destroy')->name('application.delete');
+    Route::get('/edit/{application}', 'ApplicationController@edit')->name('application.edit');
+    Route::post('/', 'ApplicationController@store')->name('application.submit');
+    Route::get('/', 'ApplicationController@index')->name('application.index');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');

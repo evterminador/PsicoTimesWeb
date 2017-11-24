@@ -2,22 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
-class AdminController extends Controller
+class ActionController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin');
+        //
     }
 
     /**
@@ -46,7 +34,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-       //
+        //
     }
 
     /**
