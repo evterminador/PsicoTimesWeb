@@ -16,6 +16,10 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 @endsection
 
 @section('body-class', 'hold-transition skin-blue sidebar-mini')
@@ -66,6 +70,7 @@
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     <label for="form1">Nombre de la aplicación: </label>
                                     <input type="text" name="name" id="form1" class="form-control" placeholder="Ejemplo: Facebook" value="{{ isset($findApp) ? $findApp->nameApplication : old('name') }}" required>
+
                                     @if ($errors->has('name'))
                                         <p class="help-block">{{ $errors->first('name') }}</p>
                                     @endif
@@ -80,6 +85,7 @@
                                 <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
                                     <label for="form3">Ruta de la imagen: </label>
                                     <input type="text" name="image" id="form3" class="form-control" placeholder="http://lorempixel.com/400/200/..." value="{{ isset($findApp) ? $findApp->image : old('image') }}" required>
+
                                     @if ($errors->has('image'))
                                         <p class="help-block">{{ $errors->first('image') }}</p>
                                     @endif
@@ -87,6 +93,7 @@
                                 <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
                                     <label for="form4">Descripción:</label>
                                     <textarea name="description" id="form4" class="form-control" rows="6" placeholder="El estar en facebook provoca..." required>{{ isset($findApp) ? $findApp->description : old('description') }}</textarea>
+
                                     @if ($errors->has('description'))
                                         <p class="help-block">{{ $errors->first('description') }}</p>
                                     @endif
@@ -104,6 +111,7 @@
                 <section class="col-lg-5 connectedSortable">
                     <div class="box box-info">
                         <div class="box-header">
+<<<<<<< HEAD
                             <i class="ion ion-clipboard"></i>
 
                             <h3 class="box-title">Lista de aplicaciones</h3>
@@ -199,6 +207,7 @@
     <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
     <!-- iCheck 1.0.1 -->
     <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
+
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 
