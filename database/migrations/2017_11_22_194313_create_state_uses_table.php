@@ -16,7 +16,7 @@ class CreateStateUsesTable extends Migration
         Schema::create('state_uses', function (Blueprint $table) {
             $table->integer('id_users')->unsigned();
             $table->integer('id_app')->unsigned();
-            $table->string('timeUse');
+            $table->bigInteger('timeUse');
             $table->integer('quantity');
             $table->timestamp('lastUseTime');
             $table->primary(['id_users', 'id_app']);
