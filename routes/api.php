@@ -17,6 +17,8 @@ Route::post('register', 'Api\Auth\RegisterController@register');
 Route::post('login', 'Api\Auth\LoginController@login');
 
 Route::prefix('post')->group(function () {
+    Route::post('profile', 'Api\PostController@createProfile');
+    Route::post('app', 'Api\PostController@putAll');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -12,9 +12,8 @@ class RegisterController extends Controller
     {
         $this->validate($request, [
            'name' => 'required|unique:users,name',
-           'email' => 'required|unique:users,email',
-           'password' => 'required|min:6|confirmed',
-           'password_confirmation'  => 'required'
+           'email' => 'required|email|unique:users,email',
+           'password' => 'required|min:6',
         ]);
 
         $user = User::create([
@@ -24,13 +23,13 @@ class RegisterController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Cuenta creada satiffactoriamente',
+            'message' => 'Cuenta creada satisfactoriamente',
             'success' => [
                 'status' => 'create',
-                'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
-                'created_at' => $user->created_at]
+                'token' => $user->token
+            ]
         ]);
     }
 }

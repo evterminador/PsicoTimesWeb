@@ -111,7 +111,6 @@
                 <section class="col-lg-5 connectedSortable">
                     <div class="box box-info">
                         <div class="box-header">
-<<<<<<< HEAD
                             <i class="ion ion-clipboard"></i>
 
                             <h3 class="box-title">Lista de aplicaciones</h3>
