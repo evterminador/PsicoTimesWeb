@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Application;
+use App\StateUses;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,7 +29,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin');
+        $carbon = Carbon::now();
+
+        $countUsersThisDay = User::whereRaw('date(created_at) = curdate()')->count();
+
+        $appsUploadThisWeek = Application::where('created_at', '>=', $carbon->startOfWeek());
+
+        $appUsers = StateUses::all();
+
+        return view('admin.admin', [
+            'countUsersThisDay' => $countUsersThisDay,
+            'appsUploadThisWeek' => $appsUploadThisWeek,
+            'appUsers' => $appUsers
+        ]);
     }
 
     /**
@@ -92,5 +108,14 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listUser()
+    {
+        $users = User::all();
+
+        return view('admin.user.user', [
+           'users' => $users
+        ]);
     }
 }

@@ -24,6 +24,10 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
+Route::prefix('user')->group(function () {
+   Route::get('/', 'AdminController@listUser')->name('list.user');
+});
+
 Route::prefix('admin/application')->group(function () {
     Route::get('/delete/{application}', 'ApplicationController@destroy')->name('application.delete');
     Route::get('/edit/{application}', 'ApplicationController@edit')->name('application.edit');

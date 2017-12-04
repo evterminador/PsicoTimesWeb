@@ -32,7 +32,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Nevegación principal</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
+            <li class="active"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>(En Proceso)</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-database"></i> <span>Mantenimiento</span>
@@ -42,6 +42,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('application.index') }}"><i class="fa fa-circle-o"></i> Applications</a></li>
+                    <li><a href="{{ route('list.user') }}"><i class="fa fa-circle-o"></i> Usuario</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Link in level 2</a></li>
                 </ul>
             </li>
