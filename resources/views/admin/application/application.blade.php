@@ -49,7 +49,7 @@
                         <div class="box-header">
                             <i class="fa fa-gear"></i>
 
-                            <h3 class="box-title">{{ isset($findApp) ? 'Actualizar: '. $findApp->nameApplication : 'Nueva aplicacion' }}</h3>
+                            <h3 class="box-title">{{ isset($findApp) ? 'Actualizar: '. $findApp->name_application : 'Nueva aplicacion' }}</h3>
                             <!-- tools box -->
                             <div class="pull-right box-tools">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -69,7 +69,7 @@
 
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     <label for="form1">Nombre de la aplicación: </label>
-                                    <input type="text" name="name" id="form1" class="form-control" placeholder="Ejemplo: Facebook" value="{{ isset($findApp) ? $findApp->nameApplication : old('name') }}" required>
+                                    <input type="text" name="name" id="form1" class="form-control" placeholder="Ejemplo: Facebook" value="{{ isset($findApp) ? $findApp->name_application : old('name') }}" required>
 
                                     @if ($errors->has('name'))
                                         <p class="help-block">{{ $errors->first('name') }}</p>
@@ -130,7 +130,7 @@
                                         <label for="">
                                             <input type="checkbox" class="flat-red">
                                         </label>
-                                        <span class="text">{{ $application->nameApplication }}</span>
+                                        <span class="text">{{ $application->name_application }}</span>
                                         <div class="tools">
                                             <a href="{{ route('application.edit', $application->id) }}"><i class="fa fa-edit"></i></a>
                                             <!--data-toggle="modal" data-target="#modal-danger" data-value="-->

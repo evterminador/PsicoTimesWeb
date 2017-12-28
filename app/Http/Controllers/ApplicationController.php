@@ -58,7 +58,7 @@ class ApplicationController extends Controller
             $message = 'Se ha creado correctamente la aplicación';
         }
 
-        $apl->nameApplication = $request->input('name');
+        $apl->name_application = $request->input('name');
         $apl->relevance = $request->input('relevance');
         $apl->image = $request->input('image');
         $apl->description = $request->input('description');
@@ -127,6 +127,15 @@ class ApplicationController extends Controller
         return redirect()->back()->with([
             'message' => 'Se eliminó el registro correctamente',
             'status' => 'Ok'
+        ]);
+    }
+
+    public function showStatistics()
+    {
+        $applications = Application::all();
+
+        return view('admin.statistics', [
+            'applications' => $applications
         ]);
     }
 }

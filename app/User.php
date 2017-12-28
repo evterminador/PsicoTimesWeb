@@ -36,10 +36,18 @@ class User extends Authenticatable
         });
     }
 
-    public function applications($id_app)
+    public function applications($app_id)
     {
-        return $this->belongsToMany('App\Application', 'state_uses', 'id_users', 'id_app')
-            ->withPivot('timeUse', 'quantity', 'lastUseTime')
-            ->wherePivot('id_app', $id_app);
+        return $this->belongsToMany('App\Application', 'state_uses', 'user_id', 'app_id')
+            ->withPivot('time_use', 'quantity', 'last_use_time')
+            ->wherePivot('app_id', $app_id)
+            ->withTimestamps();
     }
+
+    public function historics() {
+        return $this->hasMany('App\Historic')->withDefault([
+            'dni' => '12345678'
+        ]);
+    }
+
 }

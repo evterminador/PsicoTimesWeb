@@ -33,7 +33,7 @@
             <li class="header">Nevegación principal</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>(En Proceso)</span></a></li>
+            <li><a href="{{ route('statistics.index') }}"><i class="fa fa-history"></i> <span>Historial</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-database"></i> <span>Mantenimiento</span>
                     <span class="pull-right-container">

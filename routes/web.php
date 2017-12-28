@@ -35,4 +35,8 @@ Route::prefix('admin/application')->group(function () {
     Route::get('/', 'ApplicationController@index')->name('application.index');
 });
 
+Route::prefix('statistics')->group(function () {
+    Route::get('/', 'AdminController@showStatistics')->name('statistics.index');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');

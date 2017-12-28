@@ -52,7 +52,7 @@
                     <div class="small-box bg-yellow">
                         <div class="inner">
                             <h3>{{ $countUsersThisDay }}</h3>
-                            <p>Users registration</p>
+                            <p>Usuarios registrados</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -84,11 +84,11 @@
                                 <tbody>
                                 @foreach($appUsers as $app)
                                     <tr>
-                                        <td>{{ App\User::find($app->id_users)->first()->name }}</td>
-                                        <td>{{ App\Application::find($app->id_app)->first()->nameApplication }}</td>
+                                        <td>{{ App\User::find($app->user_id)->name }}</td>
+                                        <td>{{ App\Application::find($app->app_id)->name_application }}</td>
                                         <td>{{ $app->quantity }}</td>
-                                        <td>{{ convertLongToTimeChar($app->timeUse) }}</td>
-                                        <td>{{ $app->lastUseTime }}</td>
+                                        <td>{{ convertLongToTimeChar($app->time_use) }}</td>
+                                        <td>{{ $app->last_use_time }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

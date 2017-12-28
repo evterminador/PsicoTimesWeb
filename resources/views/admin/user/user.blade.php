@@ -65,7 +65,7 @@
                                         <th>Cumpleaños</th>
                                         <th>Ocupacion</th>
                                         <th>Sexo</th>
-                                        <th>Cell use</th>
+                                        <th>Tiempo de uso (h)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,10 +74,10 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ date('d/m/Y', strtotime($user->birthDate)) }}</td>
+                                            <td>{{ date('d/m/Y', strtotime($user->birth_date)) }}</td>
                                             <td>{{ $user->state }}</td>
                                             <td>{{ $user->sex }}</td>
-                                            <td>{{ $user->useTime }}</td>
+                                            <td>{{ $user->use_time }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -106,7 +106,6 @@
     <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-
     <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
     <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>

@@ -32,3 +32,9 @@ if (! function_exists('convertLongToTimeChar'))
         return $day.$hour.$min.$sec;
     }
 }
+
+if (! function_exists('getUserAge')) {
+    function getUserAge($date) {
+        return \Carbon\Carbon::parse($date)->diff(\Illuminate\Support\Carbon::now())->format('%y');
+    }
+}

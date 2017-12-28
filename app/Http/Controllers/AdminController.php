@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Application;
+use App\Historic;
 use App\StateUses;
 use App\User;
 use Carbon\Carbon;
@@ -41,6 +42,15 @@ class AdminController extends Controller
             'countUsersThisDay' => $countUsersThisDay,
             'appsUploadThisWeek' => $appsUploadThisWeek,
             'appUsers' => $appUsers
+        ]);
+    }
+
+    public function showStatistics()
+    {
+        $historics = Historic::all();
+
+        return view('admin.statistics', [
+            'historics' => $historics
         ]);
     }
 

@@ -10,8 +10,8 @@ class Application extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User', 'state_uses', 'id_app', 'id_users')
-            ->withPivot('timeUse', 'quantity', 'lastUseTime')
+        return $this->belongsToMany('App\User', 'state_uses', 'app_id', 'user_id')
+            ->withPivot('time_use', 'quantity', 'last_use_time')
             ->withTimestamps();
     }
 }
