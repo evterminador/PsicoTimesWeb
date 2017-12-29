@@ -45,9 +45,7 @@ class User extends Authenticatable
     }
 
     public function historics() {
-        return $this->hasMany('App\Historic')->withDefault([
-            'dni' => '12345678'
-        ]);
+        return $this->hasMany('App\Historic');
     }
 
 }

@@ -70,26 +70,30 @@
                                         <th>Sex</th>
                                         <th>Edad</th>
                                         <th>Tiempo estimado</th>
-                                        <th>Tiempo General</th>
-                                        <th>Nº Apps</th>
-                                        <th>App top</th>
+                                        @for($i = 1; $i <= $days; $i++ )
+                                            <th>Tiempo General dia {{ $i }}</th>
+                                            <th>Nº Apps dia {{ $i }}</th>
+                                            <th>App top dia {{ $i }}</th>
+                                        @endfor
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($historics as $historic)
+                                @foreach($statistics as $statistic)
                                     <tr>
-                                        <td>{{ $historic->id }}</td>
-                                        <td>{{ $historic->users->name }}</td>
-                                        <td>{{ $historic->users->dni }}</td>
-                                        <td>{{ $historic->users->email }}</td>
-                                        <td>{{ date('d/m/Y', strtotime($historic->users->birth_date)) }}</td>
-                                        <td>{{ $historic->users->state }}</td>
-                                        <td>{{ $historic->users->sex }}</td>
-                                        <td>{{ getUserAge($historic->users->birth_date) }}</td>
-                                        <td>{{ $historic->users->use_time }}</td>
-                                        <td>{{ $historic->time_use  }}</td>
-                                        <td>{{ $historic->quantity_app_use }}</td>
-                                        <td>{{ $historic->app_top }}</td>
+                                        <td>{{ $statistic['id'] }}</td>
+                                        <td>{{ $statistic['name'] }}</td>
+                                        <td>{{ $statistic['dni'] }}</td>
+                                        <td>{{ $statistic['email'] }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($statistic['birth_date'])) }}</td>
+                                        <td>{{ $statistic['state'] }}</td>
+                                        <td>{{ $statistic['sex'] }}</td>
+                                        <td>{{ getUserAge($statistic['birth_date']) }}</td>
+                                        <td>{{ $statistic['use_time'] }}</td>
+                                        @for($i = 0; $i < $days; $i++ )
+                                            <td>{{ (isset($statistic['historics'][$i])) ? $statistic['historics'][$i]['time_use'] : '' }}</td>
+                                            <td>{{ (isset($statistic['historics'][$i])) ? $statistic['historics'][$i]['quantity_app_use'] : '' }}</td>
+                                            <td>{{ (isset($statistic['historics'][$i])) ? $statistic['historics'][$i]['app_top'] : '' }}</td>
+                                        @endfor
                                     </tr>
                                 @endforeach
                                 </tbody>

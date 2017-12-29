@@ -47,10 +47,27 @@ class AdminController extends Controller
 
     public function showStatistics()
     {
-        $historics = Historic::all();
+
+        $users = User::with('historics')->get();
+
+        $statistics = collect();
+
+        $x = 0;
+        foreach ($users as $user) {
+            $data = $user->toArray();
+
+            $y = count($user->toArray()['historics']);
+
+            if ($y >= $x ) {
+                $x = $y;
+            }
+
+            $statistics->push($data);
+        }
 
         return view('admin.statistics', [
-            'historics' => $historics
+            'statistics' => $statistics,
+            'days' => $x
         ]);
     }
 
