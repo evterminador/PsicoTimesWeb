@@ -75,7 +75,6 @@ class PostController extends Controller
                         /**
                          * if there is update it will be 1 and if it finds the same value it will be 0
                          */
-
                         $quantities = $findApp->users()
                             ->wherePivot('user_id', '=', $user->id)
                             ->wherePivot('created_at', '>', $now)
